@@ -15,11 +15,11 @@ Ce projet regroupe :
 Environnement :
 ------------
 
-__IDE__ : Microsoft VS Code / JetBrains IntelliJ IDEA
+**IDE** : Microsoft VS Code / JetBrains IntelliJ IDEA
 
-__Langage__ : JAVA
+**Langage** : JAVA
 
-__Projet__ : git
+**Projet** : git
 
 Aperçu :
 ---------
