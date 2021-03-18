@@ -1,4 +1,5 @@
 # pentamino-iutnc-arnoux
+![projectpreview](https://github.com/guillaumearnx/pentamino-iutnc-arnoux/preview.png)
 Projet Pentamino
 ========
 
