@@ -22,4 +22,12 @@ public class Carre {
     public boolean equals(Carre c){
         return c.x == this.x && c.y == this.y;
     }
+
+    public int getX(){
+        return this.x;
+    }
+
+    public int getY(){
+        return this.y;
+    }
 }

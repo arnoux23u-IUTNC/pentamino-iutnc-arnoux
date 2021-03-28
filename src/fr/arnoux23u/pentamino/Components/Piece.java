@@ -56,4 +56,16 @@ public class Piece {
     public char getIdentifier(){
         return identifier;
     };
+
+    public int getX(){
+        return this.x;
+    }
+
+    public int getY(){
+        return this.y;
+    }
+
+    public ArrayList<Carre> getListeCarre(){
+        return this.listeCarre;
+    }
 }

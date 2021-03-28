@@ -3,9 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="433fa9fa-d819-4882-a49b-74029afbca67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/diagram.uml" beforeDir="false" afterPath="$PROJECT_DIR$/diagram.uml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pentamino-iutnc-arnoux.iml" beforeDir="false" afterPath="$PROJECT_DIR$/pentamino-iutnc-arnoux.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Carre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Carre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Piece.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Jeu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Jeu.java" afterDir="false" />
     </list>
+    <list id="bb6d5393-7384-49c0-a467-31f69bb48db6" name="Changes by quent" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -57,6 +61,11 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="fr.arnoux23u.pentamino.Components.Joueurs" />
+    </key>
+  </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="class" />
@@ -98,6 +107,14 @@
       <workItem from="1616195423840" duration="579000" />
       <workItem from="1616403651201" duration="274000" />
       <workItem from="1616489249070" duration="213000" />
+      <workItem from="1616489652183" duration="4209000" />
+      <workItem from="1616494943228" duration="2577000" />
+      <workItem from="1616502767267" duration="7315000" />
+      <workItem from="1616513278383" duration="2928000" />
+      <workItem from="1616516580150" duration="29000" />
+      <workItem from="1616532772064" duration="4264000" />
+      <workItem from="1616580263748" duration="11085000" />
+      <workItem from="1616710426608" duration="3000" />
     </task>
     <servers />
   </component>
