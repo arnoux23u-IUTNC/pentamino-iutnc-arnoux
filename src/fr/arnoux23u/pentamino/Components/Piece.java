@@ -1,13 +1,14 @@
 package fr.arnoux23u.pentamino.Components;
 
 import fr.arnoux23u.pentamino.Components.Pieces.Classes.L;
+import org.jetbrains.annotations.NotNull;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class Piece {
+public class Piece implements Comparable<Piece> {
     private int x, y;
     private final char identifier;
     private final ArrayList<Carre> listeCarre;
@@ -55,7 +56,8 @@ public class Piece {
             while ((item = (char) fr.read()) != '\uFFFF') {
                 sb.append(item == '#' || item == '\n' ? item : ' ');
             }
-        }catch (IOException ignored){}
+        } catch (IOException ignored) {
+        }
         return sb.toString();
 
     }
@@ -79,6 +81,12 @@ public class Piece {
     public ArrayList<Carre> getListeCarre() {
         return this.listeCarre;
     }
+
+    @Override
+    public int compareTo(@NotNull Piece o) {
+        return Character.compare(this.getIdentifier(),o.getIdentifier());
+    }
 }
+
 
 

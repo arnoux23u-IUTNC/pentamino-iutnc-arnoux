@@ -2,9 +2,7 @@ package fr.arnoux23u.pentamino;
 
 import fr.arnoux23u.pentamino.Components.*;
 import fr.arnoux23u.pentamino.Components.Joueurs.*;
-import fr.arnoux23u.pentamino.Components.Pieces.Classes.*;
 import fr.arnoux23u.pentamino.Utils.JoueurComparator;
-import org.jetbrains.annotations.Contract;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
@@ -34,39 +32,26 @@ public class Jeu implements Serializable {
         if (jeu == null) {
             jeu = nouvellePartie();
         }
-
-        /*//TODO DEBUG
-        Jeu jeu = new Jeu();
-        Joueur j1 = new JoueurDebutant("Tules");
-        Joueur j5 = new JoueurDebutant("Roploploplo");
-        j1.setScore(20.0);
-        j5.setScore(1020.1);
-        Joueur j3 = new JoueurIntermediaire("Louis");
-        j3.setScore(100.14);
-        Joueur j4 = new JoueurAvance("Jules");
-        j4.setScore(2.588454);
-        jeu.listeJoueurs.add(j1);
-        jeu.listeJoueurs.add(j3);
-        jeu.listeJoueurs.add(j5);
-        jeu.listeJoueurs.add(j4);
-        //TODO FINDEBUG*/
-
         System.out.println("Partie valide !");
-        Joueur player = null;
-        boolean noEmpty = jeu.afficherJoueurs();
+        jeu.demarrer();
+    }
 
+    private void demarrer() throws IOException, ClassNotFoundException {
+        int choice = -1;
+        Joueur player = null;
+        boolean noEmpty = this.afficherJoueurs();
         choice = sc.nextInt();
         if(noEmpty){
             switch (choice) {
-                case 0 -> jeu.sauvegarder();
-                case 1 -> player = jeu.choisirJoueur();
-                default -> player = jeu.creerJoueur();
+                case 0 -> this.sauvegarder();
+                case 1 -> player = this.choisirJoueur();
+                default -> player = this.creerJoueur();
             }
         }else{
             if (choice == 0) {
-                jeu.sauvegarder();
+                this.sauvegarder();
             } else {
-                player = jeu.creerJoueur();
+                player = this.creerJoueur();
             }
         }
         System.out.println("Joueur sélectionné :");
@@ -78,23 +63,22 @@ public class Jeu implements Serializable {
         choice = sc.nextInt();
         if(isParties){
             switch (choice) {
-                case 0 -> jeu.sauvegarder();
+                case 0 -> this.sauvegarder();
                 case 1 -> partie = player.choisirPartie();
                 default -> partie = player.creerPartie();
             }
         }else{
             if (choice == 0) {
-                jeu.sauvegarder();
+                this.sauvegarder();
             } else {
                 partie = player.creerPartie();
             }
         }
-        System.out.println("Partie selectionnée :");
+        System.out.println("Partie sélectionnée :");
         System.out.println("\t"+partie);
         assert partie != null;
-        partie.jouer();
-        jeu.sauvegarder();
-
+        partie.jouer(this);
+        this.sauvegarder();
     }
 
     private Joueur choisirJoueur() {
@@ -187,7 +171,7 @@ public class Jeu implements Serializable {
         return new Jeu();
     }
 
-    private void sauvegarder() throws IOException, ClassNotFoundException {
+    public void sauvegarder() throws IOException, ClassNotFoundException {
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path + "Saves\\" + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + ".bin"));
         oos.writeObject(this);
         oos.close();

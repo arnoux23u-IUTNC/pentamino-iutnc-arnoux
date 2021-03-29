@@ -3,21 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="433fa9fa-d819-4882-a49b-74029afbca67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Joueur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Partie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Partie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/F.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/F.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/I.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/I.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/L.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/L.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/N.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/N.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/P.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/P.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/T.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/T.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/U.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/U.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/V.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/V.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/W.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/W.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/X.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/X.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/Y.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/Y.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/Z.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/Z.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Jeu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Jeu.java" afterDir="false" />
     </list>
     <list id="bb6d5393-7384-49c0-a467-31f69bb48db6" name="Changes by quent" comment="" />
@@ -152,6 +139,8 @@
       <workItem from="1616580263748" duration="11085000" />
       <workItem from="1616710426608" duration="3000" />
       <workItem from="1616945351706" duration="11670000" />
+      <workItem from="1617004659942" duration="218000" />
+      <workItem from="1617044193309" duration="4118000" />
     </task>
     <servers />
   </component>
