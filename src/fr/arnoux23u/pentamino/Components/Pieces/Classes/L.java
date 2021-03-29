@@ -3,13 +3,15 @@ package fr.arnoux23u.pentamino.Components.Pieces.Classes;
 import fr.arnoux23u.pentamino.Components.Piece;
 import fr.arnoux23u.pentamino.Jeu;
 
-public class L extends Piece {
+import java.io.Serializable;
 
-    private static final char identifier = 'f';
-    private static final String path = Jeu.path + "Components\\Pieces\\Files\\"+ F.class.getSimpleName()+".txt";
+public class L extends Piece implements Serializable {
 
-    public L(int x, int y) {
-        super(x, y, identifier, path);
+    private static final char identifier = 'l';
+    private static final String path = Jeu.path + "Components\\Pieces\\Files\\"+ L.class.getSimpleName()+".txt";
+
+    public L() {
+        super(identifier, path);
     }
 
 }

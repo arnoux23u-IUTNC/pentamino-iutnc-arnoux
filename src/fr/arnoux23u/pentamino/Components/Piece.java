@@ -1,5 +1,7 @@
 package fr.arnoux23u.pentamino.Components;
 
+import fr.arnoux23u.pentamino.Components.Pieces.Classes.L;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -7,21 +9,20 @@ import java.util.ArrayList;
 
 public class Piece {
     private int x, y;
-    private char identifier;
+    private final char identifier;
     private final ArrayList<Carre> listeCarre;
-    private String path;
+    private final String path;
+    private FileReader fr;
 
 
-    public Piece(int x, int y, char identifier, String path) {
-        this.x = x;
-        this.y = y;
+    public Piece(char identifier, String path) {
         this.identifier = identifier;
         this.path = path;
         listeCarre = new ArrayList<Carre>();
         try {
-            FileReader fr = new FileReader(path);
+            fr = new FileReader(path);
             char item = ' ';
-            int line = x, pos = y;
+            int line = 0, pos = 0;
             while ((item = (char) fr.read()) != '\uFFFF') {
                 if (item == '#') {
                     Carre carre = new Carre(line, pos);
@@ -33,39 +34,51 @@ public class Piece {
                     pos = 0;
                 }
             }
-        }catch (FileNotFoundException e){
-            System.out.println("Impossible de trouver "+path);
-        }catch (IOException e){
+        } catch (FileNotFoundException e) {
+            System.out.println("Impossible de trouver " + path);
+        } catch (IOException e) {
             System.out.println("Erreur de lecture !");
         }
     }
 
-    public String toString(){
-        StringBuilder sb = new StringBuilder();
-        sb.append("Classe ").append(Character.toUpperCase(identifier)).append(" :");
-        for(Carre c : listeCarre){
-            sb.append("\n\t").append(c);
-        }
-        return sb.toString();
-    };
+    public void poserPiece(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
 
-    public String getPath(){
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder("Pièce ").append(Character.toUpperCase(identifier)).append(" :\n");
+        char item = ' ';
+        try {
+            fr = new FileReader(path);
+            while ((item = (char) fr.read()) != '\uFFFF') {
+                sb.append(item == '#' || item == '\n' ? item : ' ');
+            }
+        }catch (IOException ignored){}
+        return sb.toString();
+
+    }
+
+    public String getPath() {
         return this.path;
     }
 
-    public char getIdentifier(){
+    public char getIdentifier() {
         return identifier;
-    };
+    }
 
-    public int getX(){
+    public int getX() {
         return this.x;
     }
 
-    public int getY(){
+    public int getY() {
         return this.y;
     }
 
-    public ArrayList<Carre> getListeCarre(){
+    public ArrayList<Carre> getListeCarre() {
         return this.listeCarre;
     }
 }
+
+

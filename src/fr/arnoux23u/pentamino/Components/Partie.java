@@ -1,13 +1,16 @@
 package fr.arnoux23u.pentamino.Components;
 
+import fr.arnoux23u.pentamino.Jeu;
 import fr.arnoux23u.pentamino.Utils.JoueurComparator;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
+import java.lang.reflect.InvocationTargetException;
+import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Date;
+import java.util.*;
 
 public class Partie implements Serializable {
     private String nom;
@@ -25,7 +28,21 @@ public class Partie implements Serializable {
     }
 
     private void remplirAleatoire() {
-
+        System.out.println("Insertion de 20 pièces aléatoire");
+        File f = new File(Jeu.path + "Components\\Pieces\\Classes");
+        File[] files = f.listFiles();
+        int index = 0;
+        if (files != null && files.length > 0) {
+            for (int i = 0; i < 20; i++) {
+                String s = files[new Random().nextInt(files.length)].getName().substring(0, 1);
+                try {
+                    Piece p = (Piece) Class.forName("fr.arnoux23u.pentamino.Components.Pieces.Classes." + s).getDeclaredConstructor().newInstance();
+                    this.piecesRestantes.add(p);
+                } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException | ClassNotFoundException e) {
+                    System.out.println("Erreur d'instanciation de la pièce " + s);
+                }
+            }
+        }
     }
 
     private boolean poserPiece() {
@@ -58,16 +75,16 @@ public class Partie implements Serializable {
 
     private void afficher() {
         StringBuffer st = new StringBuffer();
-        for(char[] ligne : grille){
+        for (char[] ligne : grille) {
             for (char caseGrille : ligne) {
                 st.append(caseGrille);
             }
             st.append("\n");
         }
         st.append("Pièces à poser : ").append("\n");
-        if(piecesRestantes.isEmpty()){
-            st.append("\t").append("Aucune pièce ...").append("\n0 : Quitter la partie, 1 : Pose");
-        }else {
+        if (piecesRestantes.isEmpty()) {
+            st.append("\t").append("Aucune pièce ...").append("\n0 : Quitter la partie, 1 : Retirer dernière pièce");
+        } else {
             for (Piece p : piecesRestantes) {
                 st.append("\t").append(p).append("\n");
             }

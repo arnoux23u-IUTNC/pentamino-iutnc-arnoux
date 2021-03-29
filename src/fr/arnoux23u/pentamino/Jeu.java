@@ -69,9 +69,10 @@ public class Jeu implements Serializable {
                 player = jeu.creerJoueur();
             }
         }
-        System.out.println("Joueur selectionné :");
+        System.out.println("Joueur sélectionné :");
         System.out.println("\t"+player);
         assert player != null;
+        System.out.println("Bienvenue "+ (player.getName().toLowerCase().contains("guillaume") || player.getName().toLowerCase().contains("quentin") ? ("Maitre "+player.getName()) : player.getName()));
         boolean isParties = player.afficherParties();
         Partie partie = null;
         choice = sc.nextInt();

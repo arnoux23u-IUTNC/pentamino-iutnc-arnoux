@@ -109,5 +109,4 @@ public abstract class Joueur implements Comparable<Joueur>, Serializable {
 
 
 
-
 }
