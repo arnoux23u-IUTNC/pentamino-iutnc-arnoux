@@ -1,28 +1,22 @@
 package fr.arnoux23u.pentamino.Components;
 
-import fr.arnoux23u.pentamino.Components.Joueurs.JoueurAvance;
-import fr.arnoux23u.pentamino.Components.Joueurs.JoueurDebutant;
-import fr.arnoux23u.pentamino.Components.Joueurs.JoueurIntermediaire;
-import fr.arnoux23u.pentamino.Components.Pieces.Classes.P;
 import fr.arnoux23u.pentamino.Jeu;
-import fr.arnoux23u.pentamino.Utils.JoueurComparator;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+import java.util.*;
 
 public abstract class Joueur implements Comparable<Joueur>, Serializable {
     public static final int DEBUTANT = 0;
     public static final int INTERMEDIAIRE = 1;
     public static final int AVANCE = 2;
 
-    private ArrayList<Partie> listeParties;
+    private final ArrayList<Partie> listeParties;
 
     private final int type;
     private final int id;
     private final String name;
-    private int score;
+    private final int score;
+    private final static Scanner sc = Jeu.sc;
 
     public Joueur(int id, String nom, int difficulty) {
         this.name = (nom != null && !nom.equals(" ") && !nom.equals("")) ? nom : "Sans nom";
@@ -42,10 +36,6 @@ public abstract class Joueur implements Comparable<Joueur>, Serializable {
 
     public int getScore() {
         return this.score;
-    }
-
-    public void addScore(int sc) {
-        this.score += sc;
     }
 
     public int getId() {
@@ -73,7 +63,7 @@ public abstract class Joueur implements Comparable<Joueur>, Serializable {
         } else {
             System.out.println("Liste des parties :");
             for (Partie p : listeParties) {
-                System.out.printf("\t\t%02d : %s -> (%02d Pièces posées)\n", listeParties.indexOf(p),p.getNom(),p.getNbPiecesPosees());
+                System.out.printf("\t\t%02d : %s -> (%02d Pièces posées)\n", listeParties.indexOf(p), p.getNom(), p.getNbPiecesPosees());
             }
             System.out.println("0 : Quitter, 1 : Selectionner une partie, 2 : Creer une nouvelle partie");
             return true;
@@ -81,32 +71,55 @@ public abstract class Joueur implements Comparable<Joueur>, Serializable {
     }
 
     public Partie choisirPartie() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Entrez ID (premiere colonne) : ");
-        Partie p = null;
+        Partie p;
         try {
             int id = sc.nextInt();
             p = listeParties.get(id);
-            System.out.println("Vous avez choisi : " +p.getNom());
+            System.out.println("Vous avez choisi : " + p.getNom());
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Partie n'existe pas");
             p = creerPartie();
         }
-        sc.close();
         return p;
     }
 
     public Partie creerPartie() {
-        Scanner sc = new Scanner(System.in);
         System.out.println("Entrez taille de grille (>5, <16)");
         int taille = sc.nextInt();
-        taille = (taille<6) ? 6 : Math.min(taille, 15);
+        taille = (taille < 6) ? 6 : Math.min(taille, 15);
         Partie p = new Partie(taille);
         this.listeParties.add(p);
-        sc.close();
         return p;
     }
 
+    public void lancer(Jeu j) {
+        boolean isParties = afficherParties();
+        Partie partie = null;
+        int choice = sc.nextInt();
+        if (isParties) {
+            switch (choice) {
+                case 0 -> j.sauvegarder();
+                case 1 -> partie = choisirPartie();
+                default -> partie = creerPartie();
+            }
+        } else {
+            if (choice == 0) {
+                j.sauvegarder();
+            } else {
+                partie = creerPartie();
+            }
+        }
+        System.out.println("Partie sélectionnée :");
+        System.out.println("\t" + partie);
+        assert partie != null;
+        try{
+            partie.jouer(j);
+        }catch (Exception e){
+            aaa;
+            //TODO REFLECHIR
+        }
+    }
 
 
 }

@@ -1,5 +1,3 @@
 .git/
 .idea/
 out/
-src/fr/arnoux23u/pentamino/Saves/*
-!src/fr/arnoux23u/pentamino/Saves/.gitkeep

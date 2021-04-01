@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="433fa9fa-d819-4882-a49b-74029afbca67" name="Default Changelist" comment="" />
+    <list default="true" id="433fa9fa-d819-4882-a49b-74029afbca67" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Carre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Carre.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Joueur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Partie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Partie.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Piece.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Jeu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Jeu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Saves/.gitkeep" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Saves/2021-03-28.bin" beforeDir="false" />
+    </list>
     <list id="bb6d5393-7384-49c0-a467-31f69bb48db6" name="Changes by quent" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,6 +101,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Jeu" />
@@ -126,6 +147,7 @@
       <workItem from="1617004659942" duration="218000" />
       <workItem from="1617044193309" duration="4118000" />
       <workItem from="1617179233994" duration="20000" />
+      <workItem from="1617216264387" duration="11610000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,8 @@
 package fr.arnoux23u.pentamino.Components;
 
-public class Carre {
+import java.io.Serializable;
+
+public class Carre implements Serializable {
     private final int x, y;
 
     public Carre(){

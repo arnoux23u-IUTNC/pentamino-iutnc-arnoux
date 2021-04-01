@@ -1,27 +1,27 @@
 package fr.arnoux23u.pentamino.Components;
 
 import fr.arnoux23u.pentamino.Components.Pieces.Classes.L;
+import fr.arnoux23u.pentamino.Components.Pieces.Classes.P;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Piece implements Comparable<Piece> {
+public class Piece implements Comparable<Piece>, Serializable {
     private int x, y;
     private final char identifier;
     private final ArrayList<Carre> listeCarre;
     private final String path;
-    private FileReader fr;
-
 
     public Piece(char identifier, String path) {
         this.identifier = identifier;
         this.path = path;
         listeCarre = new ArrayList<Carre>();
         try {
-            fr = new FileReader(path);
+            FileReader fr = new FileReader(path);
             char item = ' ';
             int line = 0, pos = 0;
             while ((item = (char) fr.read()) != '\uFFFF') {
@@ -42,22 +42,34 @@ public class Piece implements Comparable<Piece> {
         }
     }
 
-    public void poserPiece(int x, int y) {
+    public int getX(){
+        return this.x;
+    }
+
+    public int getY(){
+        return this.y;
+    }
+
+    public Piece setX(int x) {
         this.x = x;
+        return this;
+    }
+
+    public Piece setY(int y) {
         this.y = y;
+        return this;
     }
 
 
     public String toString() {
-        StringBuilder sb = new StringBuilder("Pièce ").append(Character.toUpperCase(identifier)).append(" :\n");
+        StringBuilder sb = new StringBuilder();
         char item = ' ';
         try {
-            fr = new FileReader(path);
+            FileReader fr = new FileReader(path);
             while ((item = (char) fr.read()) != '\uFFFF') {
                 sb.append(item == '#' || item == '\n' ? item : ' ');
             }
-        } catch (IOException ignored) {
-        }
+        } catch (IOException ignored) {}
         return sb.toString();
 
     }
@@ -70,14 +82,6 @@ public class Piece implements Comparable<Piece> {
         return identifier;
     }
 
-    public int getX() {
-        return this.x;
-    }
-
-    public int getY() {
-        return this.y;
-    }
-
     public ArrayList<Carre> getListeCarre() {
         return this.listeCarre;
     }
@@ -86,6 +90,8 @@ public class Piece implements Comparable<Piece> {
     public int compareTo(@NotNull Piece o) {
         return Character.compare(this.getIdentifier(),o.getIdentifier());
     }
+
+
 }
 
 
