@@ -1,6 +1,7 @@
 package fr.arnoux23u.pentamino.Components;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Carre implements Serializable {
     private final int x, y;
@@ -11,7 +12,6 @@ public class Carre implements Serializable {
     }
 
     public Carre(int x, int y){
-        //TODO VERIFIER QUE CA DEBORDE PAS
         this.x = x;
         this.y = y;
     }
@@ -21,8 +21,17 @@ public class Carre implements Serializable {
         return "Carre{" +"x = " + x +", y = " + y +'}';
     }
 
-    public boolean equals(Carre c){
-        return c.x == this.x && c.y == this.y;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Carre)) return false;
+        Carre carre = (Carre) o;
+        return x == carre.x && y == carre.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 
     public int getX(){

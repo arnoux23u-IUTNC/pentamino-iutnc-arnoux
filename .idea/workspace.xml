@@ -3,14 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="433fa9fa-d819-4882-a49b-74029afbca67" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Joueur.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Carre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Carre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Joueurs/JoueurAvance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Joueurs/JoueurAvance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Joueurs/JoueurDebutant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Joueurs/JoueurDebutant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Joueurs/JoueurIntermediaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Joueurs/JoueurIntermediaire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Partie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Partie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Piece.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Jeu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Jeu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Saves/2021-03-31.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Saves/2021-04-02.bin" beforeDir="false" />
     </list>
     <list id="bb6d5393-7384-49c0-a467-31f69bb48db6" name="Changes by quent" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -88,6 +88,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Partie" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fr.arnoux23u.pentamino.Components.Partie" />
+      <module name="pentamino-iutnc-arnoux" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="fr.arnoux23u.pentamino.Components.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Piece" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="fr.arnoux23u.pentamino.Components.Piece" />
       <module name="pentamino-iutnc-arnoux" />
@@ -101,15 +114,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -117,6 +128,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Jeu" />
+        <item itemvalue="Application.Partie" />
         <item itemvalue="Application.Piece" />
       </list>
     </recent_temporary>
@@ -151,6 +163,7 @@
       <workItem from="1617179233994" duration="20000" />
       <workItem from="1617216264387" duration="11610000" />
       <workItem from="1617308040488" duration="6859000" />
+      <workItem from="1617344301235" duration="4603000" />
     </task>
     <servers />
   </component>

@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Piece implements Comparable<Piece>, Serializable {
     private Integer x, y;
@@ -42,11 +43,11 @@ public class Piece implements Comparable<Piece>, Serializable {
         }
     }
 
-    public int getX(){
+    public int getX() {
         return this.x;
     }
 
-    public int getY(){
+    public int getY() {
         return this.y;
     }
 
@@ -60,7 +61,7 @@ public class Piece implements Comparable<Piece>, Serializable {
         return this;
     }
 
-    public Piece setNull(){
+    public Piece setNull() {
         this.x = null;
         this.y = null;
         return this;
@@ -75,7 +76,8 @@ public class Piece implements Comparable<Piece>, Serializable {
             while ((item = (char) fr.read()) != '\uFFFF') {
                 sb.append(item == '#' || item == '\n' ? item : ' ');
             }
-        } catch (IOException ignored) {}
+        } catch (IOException ignored) {
+        }
         return sb.toString();
 
     }
@@ -93,8 +95,25 @@ public class Piece implements Comparable<Piece>, Serializable {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Piece)) {
+            System.out.println("noinstance");
+            return false;
+        }
+        Piece piece = (Piece) o;
+        try {
+            return identifier == piece.getIdentifier() && x.equals(piece.getX()) && y.equals(piece.getY());
+        } catch (NullPointerException e) {
+            return false;
+        }
+    }
+
+    @Override
     public int compareTo(@NotNull Piece o) {
-        return Character.compare(this.getIdentifier(),o.getIdentifier());
+        return Character.compare(this.getIdentifier(), o.getIdentifier());
     }
 
 

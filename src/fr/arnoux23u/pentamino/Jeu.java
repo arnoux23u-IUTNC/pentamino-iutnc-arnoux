@@ -2,9 +2,11 @@ package fr.arnoux23u.pentamino;
 
 import fr.arnoux23u.pentamino.Components.*;
 import fr.arnoux23u.pentamino.Components.Joueurs.*;
+import fr.arnoux23u.pentamino.Components.Pieces.Classes.F;
 import fr.arnoux23u.pentamino.Utils.JoueurComparator;
 
 import java.io.*;
+import java.security.spec.ECField;
 import java.text.*;
 import java.util.*;
 
@@ -30,8 +32,11 @@ public class Jeu implements Serializable {
             jeu = nouvellePartie();
         }
         System.out.println("Partie valide !");
-        jeu.demarrer();
+        try{jeu.demarrer();}catch (Exception e){
+            jeu.sauvegarder();
+        }
     }
+
 
     private void demarrer() {
         //int choice = -1;

@@ -2,6 +2,7 @@ package fr.arnoux23u.pentamino.Components;
 
 import fr.arnoux23u.pentamino.Components.Exceptions.CaseDejaRemplieException;
 import fr.arnoux23u.pentamino.Components.Exceptions.PieceDebordeException;
+import fr.arnoux23u.pentamino.Components.Exceptions.PieceEqualsException;
 import fr.arnoux23u.pentamino.Jeu;
 
 import java.io.File;
@@ -90,7 +91,10 @@ public class Partie implements Serializable {
             for (Map.Entry<Piece, Integer> position : affichage.entrySet()) {
                 st.append(String.format("\tPiece %c : %d occurrences\n", Character.toUpperCase(position.getKey().getIdentifier()), position.getValue())).append(position.getKey()).append("\n");
             }
-            st.append("0 : Quitter la partie, 1 : Poser une pièce, 2 : Retirer dernière pièce\n");
+            if (piecesPosees.isEmpty())
+                st.append("0 : Quitter la partie, 1 : Poser une pièce\n");
+            else
+                st.append("0 : Quitter la partie, 1 : Poser une pièce, 2 : Retirer dernière pièce\n");
         }
         System.out.println(st);
         return res;
@@ -101,7 +105,7 @@ public class Partie implements Serializable {
         return this.getNom();
     }
 
-    public void jouer(Jeu j) throws CaseDejaRemplieException, PieceDebordeException {
+    public void jouer(Jeu j) throws CaseDejaRemplieException, PieceDebordeException, PieceEqualsException {
         boolean encorePiece = afficher();
         int choice = sc.nextInt();
         if (encorePiece) {
@@ -120,21 +124,30 @@ public class Partie implements Serializable {
         jouer(j);
     }
 
-    private boolean ajouterPiece(int n, int x, int y) throws CaseDejaRemplieException, PieceDebordeException {
+    private boolean ajouterPiece(int n, int x, int y) throws CaseDejaRemplieException, PieceDebordeException, PieceEqualsException {
         boolean deborde = false, fill = false;
         for (Carre c : piecesRestantes.get(n).getListeCarre()) {
             try {
                 if (grille[x + c.getX()][y + c.getY()] != '☐') {
+                    System.out.println("Piece superpose");
                     fill = true;
                 }
-            } catch (ArrayIndexOutOfBoundsException ignored) {}
-
-            if (c.getX() < 0 || c.getY() < 0 || c.getX() >= this.grille.length || c.getY() > this.grille[0].length) {
+            } catch (ArrayIndexOutOfBoundsException e) {
                 deborde = true;
             }
-            piecesRestantes.get(n).setX(x).setY(y);
+
+            if (c.getX() < 0 || c.getY() < 0 || c.getX() >= this.grille.length || c.getY() >= this.grille[0].length) {
+                deborde = true;
+            }
+            Piece p = piecesRestantes.get(n).setX(x).setY(y);
+            for (Piece o : piecesPosees) {
+                if (p.equals(o)) {
+                    throw new PieceEqualsException("Pièces égales");
+                }
+            }
         }
         boolean res = piecesPosees.add(piecesRestantes.remove(n));
+
         actualiserGrille();
         score++;
         if (fill) throw new CaseDejaRemplieException("Case remplie !");
@@ -142,7 +155,7 @@ public class Partie implements Serializable {
         return res;
     }
 
-    private boolean poserPiece() throws CaseDejaRemplieException, PieceDebordeException {
+    private boolean poserPiece() throws CaseDejaRemplieException, PieceDebordeException, PieceEqualsException {
         System.out.println("Choisir une pièce à poser (lettre correspondante) :");
         char c = sc.next().charAt(0);
         Piece p = null;
@@ -179,10 +192,10 @@ public class Partie implements Serializable {
     public void retirerDernierePiece() {
         piecesRestantes.add(piecesPosees.remove(piecesPosees.size() - 1).setNull());
         actualiserGrille();
-        this.score --;
+        this.score--;
     }
 
-    public int getScore(){
+    public int getScore() {
         return this.score;
     }
     //LISTE POSSE NE DOIT PAS AVOIR DEUX PIECES IDENTIQUES
