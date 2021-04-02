@@ -109,9 +109,7 @@ public class Jeu implements Serializable {
             System.out.println("Choisissez un numéro");
             int num = sc.nextInt();
             try{
-                Jeu j = (Jeu) new ObjectInputStream(new FileInputStream(files[num])).readObject();
-                System.out.println(j);
-                return j;
+                return (Jeu) new ObjectInputStream(new FileInputStream(files[num])).readObject();
             } catch (ClassNotFoundException e) {
                 System.out.println("Impossible de trouver la classe Jeu");
             } catch (IOException e) {
@@ -154,6 +152,9 @@ public class Jeu implements Serializable {
     public void sauvegarder() {
         try{
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path + "Saves\\" + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + ".bin"));
+            for (Joueur j : this.listeJoueurs){
+                j.setScore(j.getListeParties().stream().mapToInt(Partie::getScore).sum()*(j.getType()==0?1:j.getType()==1?2:4));
+            }
             oos.writeObject(this);
             oos.close();
         }catch (IOException e){

@@ -11,7 +11,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Piece implements Comparable<Piece>, Serializable {
-    private int x, y;
+    private Integer x, y;
     private final char identifier;
     private final ArrayList<Carre> listeCarre;
     private final String path;
@@ -57,6 +57,12 @@ public class Piece implements Comparable<Piece>, Serializable {
 
     public Piece setY(int y) {
         this.y = y;
+        return this;
+    }
+
+    public Piece setNull(){
+        this.x = null;
+        this.y = null;
         return this;
     }
 

@@ -1,5 +1,7 @@
 package fr.arnoux23u.pentamino.Components;
 
+import fr.arnoux23u.pentamino.Components.Exceptions.CaseDejaRemplieException;
+import fr.arnoux23u.pentamino.Components.Exceptions.PieceDebordeException;
 import fr.arnoux23u.pentamino.Jeu;
 
 import java.io.Serializable;
@@ -15,8 +17,8 @@ public abstract class Joueur implements Comparable<Joueur>, Serializable {
     private final int type;
     private final int id;
     private final String name;
-    private final int score;
-    private final static Scanner sc = Jeu.sc;
+    private int score;
+    public final static Scanner sc = Jeu.sc;
 
     public Joueur(int id, String nom, int difficulty) {
         this.name = (nom != null && !nom.equals(" ") && !nom.equals("")) ? nom : "Sans nom";
@@ -36,6 +38,14 @@ public abstract class Joueur implements Comparable<Joueur>, Serializable {
 
     public int getScore() {
         return this.score;
+    }
+
+    public void setScore(int i){
+        score=i;
+    }
+
+    public ArrayList<Partie> getListeParties(){
+        return this.listeParties;
     }
 
     public int getId() {
@@ -93,7 +103,7 @@ public abstract class Joueur implements Comparable<Joueur>, Serializable {
         return p;
     }
 
-    public void lancer(Jeu j) {
+    public void lancer(Jeu j){
         boolean isParties = afficherParties();
         Partie partie = null;
         int choice = sc.nextInt();
@@ -113,13 +123,10 @@ public abstract class Joueur implements Comparable<Joueur>, Serializable {
         System.out.println("Partie sélectionnée :");
         System.out.println("\t" + partie);
         assert partie != null;
-        try{
-            partie.jouer(j);
-        }catch (Exception e){
-            aaa;
-            //TODO REFLECHIR
-        }
+        lancerPartie(j, partie);
     }
+
+    public abstract void lancerPartie(Jeu j, Partie partie);
 
 
 }

@@ -7,6 +7,7 @@ import fr.arnoux23u.pentamino.Jeu;
 import java.io.File;
 import java.io.*;
 import java.lang.*;
+import java.lang.reflect.InvocationTargetException;
 import java.text.*;
 import java.util.*;
 
@@ -15,6 +16,7 @@ public class Partie implements Serializable {
     private final char[][] grille;
     private final ArrayList<Piece> piecesPosees;
     private final ArrayList<Piece> piecesRestantes;
+    private int score;
     private static final Scanner sc = Jeu.sc;
 
     public Partie(int taille) {
@@ -58,7 +60,10 @@ public class Partie implements Serializable {
         }
         for (Piece p : piecesPosees) {
             for (Carre c : p.getListeCarre()) {
-                grille[p.getX() + c.getX()][p.getY() + c.getY()] = p.getIdentifier();
+                try {
+                    grille[p.getX() + c.getX()][p.getY() + c.getY()] = Character.toUpperCase(p.getIdentifier());
+                } catch (ArrayIndexOutOfBoundsException ignored) {
+                }
             }
         }
     }
@@ -97,36 +102,44 @@ public class Partie implements Serializable {
     }
 
     public void jouer(Jeu j) throws CaseDejaRemplieException, PieceDebordeException {
-
-            boolean encorePiece = afficher();
-            int choice = sc.nextInt();
-            if (encorePiece) {
-                switch (choice) {
-                    case 0 -> j.sauvegarder();
-                    case 2 -> retirerPiece();
-                    default -> poserPiece();
-                }
-            } else {
-                if (choice == 0) {
-                    j.sauvegarder();
-                } else {
-                    retirerPiece();
-                }
+        boolean encorePiece = afficher();
+        int choice = sc.nextInt();
+        if (encorePiece) {
+            switch (choice) {
+                case 0 -> j.sauvegarder();
+                case 2 -> retirerDernierePiece();
+                default -> poserPiece();
             }
+        } else {
+            if (choice == 0) {
+                j.sauvegarder();
+            } else {
+                retirerDernierePiece();
+            }
+        }
         jouer(j);
     }
 
     private boolean ajouterPiece(int n, int x, int y) throws CaseDejaRemplieException, PieceDebordeException {
+        boolean deborde = false, fill = false;
         for (Carre c : piecesRestantes.get(n).getListeCarre()) {
-            if (grille[c.getX()][c.getY()] != '☐') {
-                throw new CaseDejaRemplieException("Case remplie !");
-            }
+            try {
+                if (grille[x + c.getX()][y + c.getY()] != '☐') {
+                    fill = true;
+                }
+            } catch (ArrayIndexOutOfBoundsException ignored) {}
+
             if (c.getX() < 0 || c.getY() < 0 || c.getX() >= this.grille.length || c.getY() > this.grille[0].length) {
-                throw new PieceDebordeException("Débordement !");
+                deborde = true;
             }
-            piecesPosees.get(n).setX(x).setY(y);
+            piecesRestantes.get(n).setX(x).setY(y);
         }
-        return piecesPosees.add(piecesRestantes.remove(n));
+        boolean res = piecesPosees.add(piecesRestantes.remove(n));
+        actualiserGrille();
+        score++;
+        if (fill) throw new CaseDejaRemplieException("Case remplie !");
+        if (deborde) throw new PieceDebordeException("Piece deborde !");
+        return res;
     }
 
     private boolean poserPiece() throws CaseDejaRemplieException, PieceDebordeException {
@@ -163,8 +176,14 @@ public class Partie implements Serializable {
         return res;
     }
 
-    private void retirerPiece() {
+    public void retirerDernierePiece() {
+        piecesRestantes.add(piecesPosees.remove(piecesPosees.size() - 1).setNull());
+        actualiserGrille();
+        this.score --;
+    }
 
+    public int getScore(){
+        return this.score;
     }
     //LISTE POSSE NE DOIT PAS AVOIR DEUX PIECES IDENTIQUES
     //SCORE = nb de piece posee
