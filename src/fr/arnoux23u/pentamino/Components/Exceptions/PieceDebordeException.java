@@ -1,11 +1,23 @@
 package fr.arnoux23u.pentamino.Components.Exceptions;
 
-public class PieceDebordeException extends Exception{
-    public PieceDebordeException(){
+/**
+ * Classe Exception Débordement de Pièce
+ */
+public class PieceDebordeException extends Exception {
+
+    /**
+     * Constructeur public par défaut
+     */
+    public PieceDebordeException() {
         super();
     }
 
-    public PieceDebordeException(String msg){
+    /**
+     * Constructeur public à un paramètre
+     *
+     * @param msg Message
+     */
+    public PieceDebordeException(String msg) {
         super(msg);
     }
 }

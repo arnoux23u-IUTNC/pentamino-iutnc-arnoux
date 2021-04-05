@@ -1,26 +1,42 @@
 package fr.arnoux23u.pentamino.Components;
 
 import java.io.Serializable;
-import java.util.Objects;
 
+/**
+ * Classe Carre
+ */
 public class Carre implements Serializable {
+
+    //Position du Carré
     private final int x, y;
 
-    public Carre(){
-        this.x = 0;
-        this.y = 0;
-    }
-
-    public Carre(int x, int y){
+    /**
+     * Constructeur public à deux paramètres
+     *
+     * @param x abscisse
+     * @param y ordonnée
+     */
+    public Carre(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
+    /**
+     * Méthode écrasée toString
+     *
+     * @return String d'affichage
+     */
     @Override
     public String toString() {
-        return "Carre{" +"x = " + x +", y = " + y +'}';
+        return "Carre{" + "x = " + x + ", y = " + y + '}';
     }
 
+    /**
+     * Méthode écrasée de test d'égalité
+     *
+     * @param o Objet à comparer
+     * @return booleen, a vrai si this == o ou si les coordonnées sont les mêmes
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -29,16 +45,21 @@ public class Carre implements Serializable {
         return x == carre.x && y == carre.y;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(x, y);
-    }
-
-    public int getX(){
+    /**
+     * Getter X
+     *
+     * @return abscisse du Carré
+     */
+    public int getX() {
         return this.x;
     }
 
-    public int getY(){
+    /**
+     * Getter Y
+     *
+     * @return ordonnée du Carré
+     */
+    public int getY() {
         return this.y;
     }
 }

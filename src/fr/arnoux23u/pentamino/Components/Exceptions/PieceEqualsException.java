@@ -1,11 +1,23 @@
 package fr.arnoux23u.pentamino.Components.Exceptions;
 
-public class PieceEqualsException extends Exception{
-    public PieceEqualsException(){
+/**
+ * Classe Exception Egalité de Pièce
+ */
+public class PieceEqualsException extends Exception {
+
+    /**
+     * Constructeur public par défaut
+     */
+    public PieceEqualsException() {
         super();
     }
 
-    public PieceEqualsException(String msg){
+    /**
+     * Constructeur public à un paramètre
+     *
+     * @param msg Message
+     */
+    public PieceEqualsException(String msg) {
         super(msg);
     }
 }

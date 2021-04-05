@@ -2,44 +2,70 @@ package fr.arnoux23u.pentamino;
 
 import fr.arnoux23u.pentamino.Components.*;
 import fr.arnoux23u.pentamino.Components.Joueurs.*;
-import fr.arnoux23u.pentamino.Components.Pieces.Classes.F;
 import fr.arnoux23u.pentamino.Utils.JoueurComparator;
 
 import java.io.*;
-import java.security.spec.ECField;
 import java.text.*;
 import java.util.*;
 
 import static java.lang.System.exit;
 
+/**
+ * classe Principale Jeu
+ *
+ * @author arnoux23u
+ */
 public class Jeu implements Serializable {
-    public static final String path = ".\\src\\fr\\arnoux23u\\pentamino\\";
-    private final ArrayList<Joueur> listeJoueurs;
-    public static final Scanner sc = new Scanner(System.in);
 
+    //Lien utilisé par d'autres classes
+    public static final String path = ".\\src\\fr\\arnoux23u\\pentamino\\";
+
+    //Liste des joueurs
+    private final ArrayList<Joueur> listeJoueurs;
+
+    //Scanner principal (eviter les ouvertures multiples)
+    public static Scanner sc = new Scanner(System.in);
+
+    /**
+     * Constructeur public par défaut, instancie la liste des joueurs
+     */
     public Jeu() {
         listeJoueurs = new ArrayList<Joueur>();
     }
 
+    /**
+     * Méthode main
+     *
+     * @param args arguments
+     */
     public static void main(String[] args) {
         System.out.println("Bienvenue sur le Pentamino !\n\033[3mMade by Guillaume and Quentin\033[0m\n\n1 : Charger la sauvegarde, 2 : Nouvelle partie");
-        int choice = sc.nextInt();
+        int choice = 0;
+        try{
+            choice = sc.nextInt();
+        }catch (InputMismatchException e){
+            sc.close();
+            exit(0);
+        }
         Jeu jeu = null;
         if (choice == 1) {
-           jeu = choixSauvegardes();
+            jeu = choixSauvegardes();
         }
         if (jeu == null) {
             jeu = nouvellePartie();
         }
         System.out.println("Partie valide !");
-        try{jeu.demarrer();}catch (Exception e){
+        try {
+            jeu.demarrer();
+        } catch (Exception e) {
             jeu.sauvegarder();
         }
     }
 
-
+    /**
+     * Méthode démmarer
+     */
     private void demarrer() {
-        //int choice = -1;
         Joueur player = null;
         boolean noEmpty = this.afficherJoueurs();
         int choice = sc.nextInt();
@@ -64,6 +90,11 @@ public class Jeu implements Serializable {
         this.sauvegarder();
     }
 
+    /**
+     * Méthode de sélection d'un Joueur
+     *
+     * @return Joueur séléctionné
+     */
     private Joueur choisirJoueur() {
         System.out.println("Entrez ID (premiere colonne) : ");
         Joueur j = null;
@@ -83,6 +114,11 @@ public class Jeu implements Serializable {
         return j;
     }
 
+    /**
+     * Méthode de création d'un Joueur
+     *
+     * @return Joueur crée
+     */
     private Joueur creerJoueur() {
         System.out.println("Création joueur, entrez nom");
         String name = sc.next();
@@ -99,7 +135,12 @@ public class Jeu implements Serializable {
         return j;
     }
 
-    private static Jeu choixSauvegardes(){
+    /**
+     * Méthode statique de choix d'une sauvegarde
+     *
+     * @return Jeu : sauvegarde
+     */
+    private static Jeu choixSauvegardes() {
         File f = new File(path + "Saves\\");
         File[] files = f.listFiles();
         System.out.println("Liste des sauvegardes : ");
@@ -113,7 +154,7 @@ public class Jeu implements Serializable {
             }
             System.out.println("Choisissez un numéro");
             int num = sc.nextInt();
-            try{
+            try {
                 return (Jeu) new ObjectInputStream(new FileInputStream(files[num])).readObject();
             } catch (ClassNotFoundException e) {
                 System.out.println("Impossible de trouver la classe Jeu");
@@ -126,6 +167,20 @@ public class Jeu implements Serializable {
         return null;
     }
 
+    /**
+     * Méthode de création de Partie
+     *
+     * @return Jeu crée
+     */
+    private static Jeu nouvellePartie() {
+        return new Jeu();
+    }
+
+    /**
+     * Méthode d'affichage des joueurs
+     *
+     * @return booleen, a vrai si il y a des joueurs
+     */
     private boolean afficherJoueurs() {
         if (this.listeJoueurs.isEmpty()) {
             System.out.println("Aucun joueur\n0 : Quitter, 1 : Creer un nouveau joueur");
@@ -143,26 +198,29 @@ public class Jeu implements Serializable {
         }
     }
 
+    /**
+     * Méthode d'affichage des joueurs (concret)
+     */
     public void affiche() {
         for (Joueur j : listeJoueurs) {
             System.out.printf("\t\t%02d : %10s (%d | %1c) -> (%05d)%n", j.getId(), (j.getName().length() > 9) ? j.getName().substring(0, 9) : j.getName(), j.getType(), j.getTypeIdentifier(), j.getScore());
         }
     }
 
-
-    private static Jeu nouvellePartie() {
-        return new Jeu();
-    }
-
+    /**
+     * Méthode de sauvegarde, termine le processus
+     */
     public void sauvegarder() {
-        try{
+        System.out.println("Fin du jeu");
+        try {
+
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path + "Saves\\" + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + ".bin"));
-            for (Joueur j : this.listeJoueurs){
-                j.setScore(j.getListeParties().stream().mapToInt(Partie::getScore).sum()*(j.getType()==0?1:j.getType()==1?2:4));
+            for (Joueur j : this.listeJoueurs) {
+                j.setScore(j.getListeParties().stream().mapToInt(Partie::getScore).sum() * (j.getType() == 0 ? 1 : j.getType() == 1 ? 2 : 4));
             }
             oos.writeObject(this);
             oos.close();
-        }catch (IOException e){
+        } catch (IOException e) {
             System.out.println("Impossible de sauvegarder le jeu");
         }
         sc.close();

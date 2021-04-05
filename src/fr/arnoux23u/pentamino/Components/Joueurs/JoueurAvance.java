@@ -1,19 +1,34 @@
 package fr.arnoux23u.pentamino.Components.Joueurs;
 
-import fr.arnoux23u.pentamino.Components.Exceptions.CaseDejaRemplieException;
-import fr.arnoux23u.pentamino.Components.Exceptions.PieceDebordeException;
-import fr.arnoux23u.pentamino.Components.Exceptions.PieceEqualsException;
-import fr.arnoux23u.pentamino.Components.Joueur;
-import fr.arnoux23u.pentamino.Components.Partie;
+import fr.arnoux23u.pentamino.Components.Exceptions.*;
+import fr.arnoux23u.pentamino.Components.*;
 import fr.arnoux23u.pentamino.Jeu;
 
 import java.io.Serializable;
 
+/**
+ * Classe Joueur Avancé
+ *
+ * @author arnoux23u
+ */
 public class JoueurAvance extends Joueur implements Serializable {
+
+    /**
+     * Constructeur public à deux paramètres
+     *
+     * @param id  id du Joueur
+     * @param nom nom du Joueur
+     */
     public JoueurAvance(int id, String nom) {
         super(id, nom, Joueur.AVANCE);
     }
 
+    /**
+     * Méthode écrasée lancerPartie
+     *
+     * @param j Jeu en cours
+     * @param partie Partie à lancer
+     */
     @Override
     public void lancerPartie(Jeu j, Partie partie) {
         try {
@@ -26,7 +41,7 @@ public class JoueurAvance extends Joueur implements Serializable {
             System.out.println("Les pièces ne peuvent pas se superposer !");
             partie.retirerDernierePiece();
             lancerPartie(j, partie);
-        }catch (PieceEqualsException e){
+        } catch (PieceEqualsException e) {
             System.out.println("La pièce existe déjà à cet endroit dans la grille");
             lancerPartie(j, partie);
         }
