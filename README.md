@@ -16,16 +16,16 @@ Ce projet regroupe :
 Environnement :
 ------------
 
-**IDE** : Microsoft VS Code / JetBrains IntelliJ IDEA
+**IDE** : Microsoft VS / JetBrains IntelliJ IDEA
 
-**Langage** : JAVA
+**Langage** : Java
 
-**Projet** : git
+**Projet** : GitHub
 
 Aperçu :
 ---------
 
-# A completer
+![apercu](apercu.png?raw=true)
 
 ---------------------
 
