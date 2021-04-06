@@ -17,7 +17,6 @@ public class JoueurComparator implements Comparator<Joueur> {
      * @param j2 Joueur 2
      * @return Négation du score 1 moins le score 2 -> -(difference)
      */
-    @Override
     public int compare(Joueur j1, Joueur j2) {
         return -(j1.getScore() - j2.getScore());
     }

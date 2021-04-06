@@ -47,6 +47,7 @@ public class Piece implements Comparable<Piece>, Serializable {
                     pos = 0;
                 }
             }
+            fr.close();
         } catch (FileNotFoundException e) {
             System.out.println("Impossible de trouver " + path);
         } catch (IOException e) {
@@ -179,6 +180,7 @@ public class Piece implements Comparable<Piece>, Serializable {
             while ((item = (char) fr.read()) != '\uFFFF') {
                 sb.append(item == '#' || item == '\n' ? item : ' ');
             }
+            fr.close();
         } catch (IOException ignored) {
         }
         return sb.toString();
