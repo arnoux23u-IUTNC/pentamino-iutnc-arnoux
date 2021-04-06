@@ -1,7 +1,5 @@
 package fr.arnoux23u.pentamino.Components;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.*;
 import java.util.*;
 
@@ -163,7 +161,7 @@ public class Piece implements Comparable<Piece>, Serializable {
      * @param o Pièce à comparer
      * @return Entier issu de la comparaison
      */
-    public int compareTo(@NotNull Piece o) {
+    public int compareTo(Piece o) {
         return (this.getIdentifier() > o.getIdentifier()) ? 1 : (this.getIdentifier() < o.getIdentifier()) ? -1 : 0;
     }
 
