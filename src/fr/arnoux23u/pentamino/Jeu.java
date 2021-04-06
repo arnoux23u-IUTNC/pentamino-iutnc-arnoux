@@ -41,9 +41,9 @@ public class Jeu implements Serializable {
     public static void main(String[] args) {
         System.out.println("Bienvenue sur le Pentamino !\n\033[3mMade by Guillaume and Quentin\033[0m\n\n1 : Charger la sauvegarde, 2 : Nouvelle partie");
         int choice = 0;
-        try{
+        try {
             choice = sc.nextInt();
-        }catch (InputMismatchException e){
+        } catch (InputMismatchException e) {
             sc.close();
             exit(0);
         }
@@ -71,9 +71,15 @@ public class Jeu implements Serializable {
         int choice = sc.nextInt();
         if (noEmpty) {
             switch (choice) {
-                case 0 -> this.sauvegarder();
-                case 1 -> player = this.choisirJoueur();
-                default -> player = this.creerJoueur();
+                case 0:
+                    this.sauvegarder();
+                    break;
+                case 1:
+                    player = this.choisirJoueur();
+                    break;
+                default:
+                    player = this.creerJoueur();
+                    break;
             }
         } else {
             if (choice == 0) {
@@ -127,9 +133,15 @@ public class Jeu implements Serializable {
         int id = this.listeJoueurs.size();
         Joueur j;
         switch (diff) {
-            case 1 -> j = new JoueurIntermediaire(id, name);
-            case 2 -> j = new JoueurAvance(id, name);
-            default -> j = new JoueurDebutant(id, name);
+            case 1:
+                j = new JoueurIntermediaire(id, name);
+                break;
+            case 2:
+                j = new JoueurAvance(id, name);
+                break;
+            default:
+                j = new JoueurDebutant(id, name);
+                break;
         }
         this.listeJoueurs.add(j);
         return j;
@@ -189,7 +201,7 @@ public class Jeu implements Serializable {
             System.out.println("Liste des joueurs :\n\t- Ordre alphabétique :");
             Collections.sort(this.listeJoueurs);
             affiche();
-            this.listeJoueurs.sort(new JoueurComparator());
+            Collections.sort(listeJoueurs, new JoueurComparator());
             System.out.println("\t- Ordre Score décroissant :");
             affiche();
             Collections.sort(this.listeJoueurs);
@@ -213,10 +225,13 @@ public class Jeu implements Serializable {
     public void sauvegarder() {
         System.out.println("Fin du jeu");
         try {
-
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path + "Saves\\" + new SimpleDateFormat("yyyy-MM-dd").format(new Date()) + ".bin"));
             for (Joueur j : this.listeJoueurs) {
-                j.setScore(j.getListeParties().stream().mapToInt(Partie::getScore).sum() * (j.getType() == 0 ? 1 : j.getType() == 1 ? 2 : 4));
+                int score = 0;
+                for (Partie p : j.getListeParties()) {
+                    score += p.getScore();
+                }
+                j.setScore((score) * j.getType() == 0 ? 1 : j.getType() == 1 ? 2 : 4);
             }
             oos.writeObject(this);
             oos.close();

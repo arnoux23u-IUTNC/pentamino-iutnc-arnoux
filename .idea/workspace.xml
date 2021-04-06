@@ -2,33 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="433fa9fa-d819-4882-a49b-74029afbca67" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagram.uml" beforeDir="false" afterPath="$PROJECT_DIR$/diagram.uml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Carre.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Carre.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Exceptions/CaseDejaRemplieException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Exceptions/CaseDejaRemplieException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Exceptions/PieceDebordeException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Exceptions/PieceDebordeException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Exceptions/PieceEqualsException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Exceptions/PieceEqualsException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Joueur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Joueur.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Joueurs/JoueurAvance.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Joueurs/JoueurAvance.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Joueurs/JoueurDebutant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Joueurs/JoueurDebutant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Joueurs/JoueurIntermediaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Joueurs/JoueurIntermediaire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Partie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Partie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Piece.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Piece.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/F.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/F.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/I.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/I.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/L.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/L.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/N.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/N.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/P.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/P.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/T.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/T.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/U.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/U.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/V.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/V.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/W.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/W.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/X.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/Y.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/Y.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/Z.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Components/Pieces/Classes/Z.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Jeu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Jeu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Saves/2021-04-02.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Utils/JoueurComparator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/fr/arnoux23u/pentamino/Utils/JoueurComparator.java" afterDir="false" />
     </list>
     <list id="bb6d5393-7384-49c0-a467-31f69bb48db6" name="Changes by quent" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -80,6 +64,9 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="reference.settings.ide.settings.uml" />
   </component>
   <component name="RecentsManager">
@@ -119,13 +106,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -173,6 +162,7 @@
       <workItem from="1617581415473" duration="117000" />
       <workItem from="1617647212439" duration="590000" />
       <workItem from="1617653983957" duration="3415000" />
+      <workItem from="1617732109291" duration="2737000" />
     </task>
     <servers />
   </component>

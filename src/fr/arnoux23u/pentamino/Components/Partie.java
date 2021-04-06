@@ -64,7 +64,15 @@ public class Partie implements Serializable {
                 try {
                     Piece p = (Piece) Class.forName("fr.arnoux23u.pentamino.Components.Pieces.Classes." + s).getDeclaredConstructor().newInstance();
                     this.piecesRestantes.add(p);
-                } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException | ClassNotFoundException e) {
+                } catch (InstantiationException e) {
+                    System.out.println("Erreur d'instanciation de la pièce " + s);
+                } catch (IllegalAccessException e) {
+                    System.out.println("Erreur d'instanciation de la pièce " + s);
+                } catch (InvocationTargetException e) {
+                    System.out.println("Erreur d'instanciation de la pièce " + s);
+                } catch (NoSuchMethodException e) {
+                    System.out.println("Erreur d'instanciation de la pièce " + s);
+                } catch (ClassNotFoundException e) {
                     System.out.println("Erreur d'instanciation de la pièce " + s);
                 }
             }
@@ -126,7 +134,7 @@ public class Partie implements Serializable {
         //Affichage grille
         for (char[] ligne : grille) {
             for (char caseGrille : ligne) {
-                st.append(String.format("%2c",caseGrille));
+                st.append(String.format("%2c", caseGrille));
             }
             st.append("\n");
         }
@@ -182,10 +190,21 @@ public class Partie implements Serializable {
     public void jouer(Jeu j) throws CaseDejaRemplieException, PieceDebordeException, PieceEqualsException {
         int resultAffichage = afficher() * 10 + sc.nextInt();
         switch (resultAffichage) {
-            case 1, 11 -> remplirAleatoire();
-            case 12, 32 -> retirerDernierePiece();
-            case 21, 31 -> poserPiece();
-            default -> j.sauvegarder();
+            case 1:
+            case 11:
+                remplirAleatoire();
+                break;
+            case 12:
+            case 32:
+                retirerDernierePiece();
+                break;
+            case 21:
+            case 31:
+                poserPiece();
+                break;
+            default:
+                j.sauvegarder();
+                break;
         }
         jouer(j);
     }

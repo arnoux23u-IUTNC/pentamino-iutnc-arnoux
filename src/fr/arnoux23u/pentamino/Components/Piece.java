@@ -161,11 +161,10 @@ public class Piece implements Comparable<Piece>, Serializable {
      * Méthode écrasée de comparaison de pièces
      *
      * @param o Pièce à comparer
-     * @return Entier issu de la méthode Character.compare()
+     * @return Entier issu de la comparaison
      */
-    @Override
     public int compareTo(@NotNull Piece o) {
-        return Character.compare(this.getIdentifier(), o.getIdentifier());
+        return (this.getIdentifier() > o.getIdentifier()) ? 1 : (this.getIdentifier() < o.getIdentifier()) ? -1 : 0;
     }
 
     /**

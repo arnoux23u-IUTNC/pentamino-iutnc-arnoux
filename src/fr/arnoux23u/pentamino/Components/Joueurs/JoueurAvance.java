@@ -26,7 +26,7 @@ public class JoueurAvance extends Joueur implements Serializable {
     /**
      * Méthode écrasée lancerPartie
      *
-     * @param j Jeu en cours
+     * @param j      Jeu en cours
      * @param partie Partie à lancer
      */
     @Override

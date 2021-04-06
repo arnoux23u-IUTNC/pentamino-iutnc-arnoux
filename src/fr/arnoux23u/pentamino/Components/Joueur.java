@@ -119,7 +119,6 @@ public abstract class Joueur implements Comparable<Joueur>, Serializable {
      * @param j2 Joueur à comparer
      * @return Entier issu de la méthode String.compareTo
      */
-    @Override
     public int compareTo(Joueur j2) {
         return this.getName().toLowerCase().compareTo(j2.getName().toLowerCase());
     }
@@ -197,9 +196,15 @@ public abstract class Joueur implements Comparable<Joueur>, Serializable {
         int choice = sc.nextInt();
         if (isParties) {
             switch (choice) {
-                case 0 -> j.sauvegarder();
-                case 1 -> partie = choisirPartie();
-                default -> partie = creerPartie();
+                case 0:
+                    j.sauvegarder();
+                    break;
+                case 1:
+                    partie = choisirPartie();
+                    break;
+                default:
+                    partie = creerPartie();
+                    break;
             }
         } else {
             if (choice == 0) {

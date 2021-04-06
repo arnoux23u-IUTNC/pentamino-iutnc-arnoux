@@ -33,7 +33,9 @@ public class JoueurDebutant extends Joueur implements Serializable {
     public void lancerPartie(Jeu j, Partie partie) {
         try {
             partie.jouer(j);
-        } catch (PieceDebordeException | CaseDejaRemplieException ignored) {
+        } catch (PieceDebordeException e) {
+            lancerPartie(j, partie);
+        } catch (CaseDejaRemplieException e) {
             lancerPartie(j, partie);
         } catch (PieceEqualsException e) {
             System.out.println("La pièce existe déjà à cet endroit dans la grille");
