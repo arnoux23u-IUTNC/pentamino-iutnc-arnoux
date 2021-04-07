@@ -12,6 +12,7 @@ import static java.lang.System.exit;
 
 /**
  * classe Principale Jeu
+ * Depot GitHub : https://github.com/guillaumearnx/pentamino-iutnc-arnoux
  *
  * @author arnoux23u
  */
