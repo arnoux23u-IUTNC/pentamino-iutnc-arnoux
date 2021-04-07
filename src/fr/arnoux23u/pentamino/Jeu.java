@@ -49,10 +49,10 @@ public class Jeu implements Serializable {
         }
         Jeu jeu = null;
         if (choice == 1) {
-            jeu = choixSauvegardes();
+            jeu = choisirSauvegardes();
         }
         if (jeu == null) {
-            jeu = nouvellePartie();
+            jeu = creerPartie();
         }
         System.out.println("Partie valide !");
         try {
@@ -152,7 +152,7 @@ public class Jeu implements Serializable {
      *
      * @return Jeu : sauvegarde
      */
-    private static Jeu choixSauvegardes() {
+    private static Jeu choisirSauvegardes() {
         File f = new File(path + "Saves\\");
         File[] files = f.listFiles();
         System.out.println("Liste des sauvegardes : ");
@@ -184,7 +184,7 @@ public class Jeu implements Serializable {
      *
      * @return Jeu crée
      */
-    private static Jeu nouvellePartie() {
+    private static Jeu creerPartie() {
         return new Jeu();
     }
 
@@ -200,10 +200,10 @@ public class Jeu implements Serializable {
         } else {
             System.out.println("Liste des joueurs :\n\t- Ordre alphabétique :");
             Collections.sort(this.listeJoueurs);
-            affiche();
+            afficherListeJoueurs();
             Collections.sort(listeJoueurs, new JoueurComparator());
             System.out.println("\t- Ordre Score décroissant :");
-            affiche();
+            afficherListeJoueurs();
             Collections.sort(this.listeJoueurs);
             System.out.println("0 : Quitter, 1 : Selectionner un joueur, 2 : Creer un nouveau joueur ");
             return true;
@@ -213,7 +213,7 @@ public class Jeu implements Serializable {
     /**
      * Méthode d'affichage des joueurs (concret)
      */
-    public void affiche() {
+    public void afficherListeJoueurs() {
         for (Joueur j : listeJoueurs) {
             System.out.printf("\t\t%02d : %10s (%d | %1c) -> (%05d)%n", j.getId(), (j.getName().length() > 9) ? j.getName().substring(0, 9) : j.getName(), j.getType(), j.getTypeIdentifier(), j.getScore());
         }
