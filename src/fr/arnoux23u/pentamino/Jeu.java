@@ -48,6 +48,10 @@ public class Jeu implements Serializable {
             exit(0);
         }
         Jeu jeu = null;
+        File lSave = new File(path + "Saves\\");
+        if (!lSave.exists()) {
+            lSave.mkdir();
+        }
         if (choice == 1) {
             jeu = choisirSauvegardes();
         }
@@ -231,7 +235,8 @@ public class Jeu implements Serializable {
                 for (Partie p : j.getListeParties()) {
                     score += p.getScore();
                 }
-                j.setScore((score) * j.getType() == 0 ? 1 : j.getType() == 1 ? 2 : 4);
+                int multiplicateur = j.getType() == 0 ? 1 : (j.getType() == 1 ? 2 : 4);
+                j.setScore(score * multiplicateur);
             }
             oos.writeObject(this);
             oos.close();
