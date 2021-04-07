@@ -27,6 +27,11 @@ Aperçu :
 
 ![apercu](apercu.png?raw=true)
 
+Diagramme de classes :
+---------
+
+![diag](diagram.png?raw=true)
+
 ---------------------
 
 OpenSource arnoux23u
