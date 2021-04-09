@@ -38,7 +38,7 @@ public class Piece implements Comparable<Piece>, Serializable {
             int line = 0, pos = 0;
             while ((item = (char) fr.read()) != '\uFFFF') {
                 if (item == '#') {
-                    Carre carre = new Carre(line, pos);
+                    Carre carre = new Carre(pos, line);
                     listeCarre.add(carre);
                 }
                 pos++;

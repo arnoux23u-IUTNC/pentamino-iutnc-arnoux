@@ -57,9 +57,9 @@ public class Jeu implements Serializable {
             jeu = choisirSauvegardes();
         }
         if (jeu == null) {
-            jeu = creerPartie();
+            jeu = creerJeu();
         }
-        System.out.println("Partie valide !");
+        System.out.println("Jeu valide !");
         try {
             jeu.demarrer();
         } catch (Exception e) {
@@ -185,11 +185,11 @@ public class Jeu implements Serializable {
     }
 
     /**
-     * Méthode de création de Partie
+     * Méthode de création de Jeu
      *
      * @return Jeu crée
      */
-    private static Jeu creerPartie() {
+    private static Jeu creerJeu() {
         return new Jeu();
     }
 

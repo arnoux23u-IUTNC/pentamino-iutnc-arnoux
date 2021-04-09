@@ -116,7 +116,7 @@ public class Partie implements Serializable {
         for (Piece p : piecesPosees) {
             for (Carre c : p.getListeCarre()) {
                 try {
-                    grille[p.getX() + c.getX()][p.getY() + c.getY()] = Character.toUpperCase(p.getIdentifier());
+                    grille[(p.getY() + c.getY())][(p.getX() + c.getX())] = Character.toUpperCase(p.getIdentifier());
                 } catch (ArrayIndexOutOfBoundsException ignored) {
                 }
             }

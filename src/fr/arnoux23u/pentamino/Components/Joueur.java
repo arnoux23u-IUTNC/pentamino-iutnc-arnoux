@@ -177,9 +177,9 @@ public abstract class Joueur implements Comparable<Joueur>, Serializable {
      * @return Partie crée
      */
     public Partie creerPartie() {
-        System.out.println("Entrez taille de grille (>5, <16)");
+        System.out.println("Entrez taille de grille (>5, <20)");
         int taille = sc.nextInt();
-        taille = (taille < 6) ? 6 : Math.min(taille, 15);
+        taille = (taille < 6) ? 6 : Math.min(taille, 19);
         Partie p = new Partie(taille);
         this.listeParties.add(p);
         return p;
