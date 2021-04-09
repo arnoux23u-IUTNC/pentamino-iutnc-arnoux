@@ -1,14 +1,14 @@
 package fr.arnoux23u.pentamino.Components.Exceptions;
 
 /**
- * Classe Exception Débordement de Pièce
+ * Classe Exception Debordement de Piece
  *
  * @author arnoux23u
  */
 public class PieceDebordeException extends Exception {
 
     /**
-     * Constructeur public à un paramètre
+     * Constructeur public a un parametre
      *
      * @param msg Message
      */

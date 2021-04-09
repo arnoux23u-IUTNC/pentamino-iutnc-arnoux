@@ -16,29 +16,50 @@ import java.util.*;
  */
 public class Partie implements Serializable {
 
-    //Nom de la Partie
+    /**
+     * Attribut prive
+     * Nom de la Partie
+     */
     private final String nom;
 
-    //Grille de la Partie
+    /**
+     * Attribut prive
+     * Grille de la Partie
+     */
     private final char[][] grille;
 
-    //Liste de pièces posées
+    /**
+     * Attribut prive
+     * Liste de pieces posees
+     */
     private final ArrayList<Piece> piecesPosees;
 
-    //Liste de pièces restantes
+    /**
+     * Attribut prive
+     * Liste de pieces restantes
+     */
     private final ArrayList<Piece> piecesRestantes;
 
-    //Score de la Partie
+    /**
+     * Attribut prive
+     * Score de la Partie
+     */
     private int score;
 
-    //Scanner issu de la classe Jeu
+    /**
+     * Attribut prive
+     * Scanner issu de la classe Jeu
+     */
     private static final Scanner sc = Jeu.sc;
 
-    //Caractère vide de grille
-    private static final char charVide = '∎';
+    /**
+     * Attribut prive
+     * Caractere vide de grille
+     */
+    private static final char charVide = '\u220E';
 
     /**
-     * Constructeur public à 1 paramètre
+     * Constructeur public a 1 parametre
      *
      * @param taille Taille de la grille
      */
@@ -52,7 +73,7 @@ public class Partie implements Serializable {
     }
 
     /**
-     * Méthode de remplissage aléatoire de la liste piecesRestantes
+     * Methode de remplissage aleatoire de la liste piecesRestantes
      */
     private void remplirAleatoire() {
         System.out.println("Insertion de 20 pièces aléatoires");
@@ -89,9 +110,9 @@ public class Partie implements Serializable {
     }
 
     /**
-     * Getter Nombre de pièces posées
+     * Getter Nombre de pieces posees
      *
-     * @return Nombre de pièces posées dans la Partie
+     * @return Nombre de pieces posees dans la Partie
      */
     public int getNbPiecesPosees() {
         return this.piecesPosees.size();
@@ -107,7 +128,7 @@ public class Partie implements Serializable {
     }
 
     /**
-     * Méthode qui actualise la grille selon les listes
+     * Methode qui actualise la grille selon les listes
      */
     private void actualiserGrille() {
         for (char[] chars : grille) {
@@ -124,7 +145,7 @@ public class Partie implements Serializable {
     }
 
     /**
-     * Méthode d'affichage des pièces et de la grille
+     * Methode d'affichage des pieces et de la grille
      *
      * @return entier selon les listes
      */
@@ -170,7 +191,7 @@ public class Partie implements Serializable {
     }
 
     /**
-     * Méthode écrasée toString
+     * Methode ecrasee toString
      *
      * @return Nom de la Partie
      */
@@ -180,12 +201,12 @@ public class Partie implements Serializable {
     }
 
     /**
-     * Méthode jouer
+     * Methode jouer
      *
      * @param j Jeu
-     * @throws CaseDejaRemplieException Exception en cas de case occupée
-     * @throws PieceDebordeException    Exception en cas de débordement
-     * @throws PieceEqualsException     Exception si pièces égales
+     * @throws CaseDejaRemplieException Exception en cas de case occupee
+     * @throws PieceDebordeException    Exception en cas de debordement
+     * @throws PieceEqualsException     Exception si pieces egales
      */
     public void jouer(Jeu j) throws CaseDejaRemplieException, PieceDebordeException, PieceEqualsException {
         int resultAffichage = afficher() * 10 + sc.nextInt();
@@ -210,14 +231,14 @@ public class Partie implements Serializable {
     }
 
     /**
-     * Méthode d'ajout de Pièce
+     * Methode d'ajout de Piece
      *
-     * @param n Position de la Pièce dans la liste
+     * @param n Position de la Piece dans la liste
      * @param x Abscisse
-     * @param y Ordonnée
-     * @throws CaseDejaRemplieException Exception en cas de case occupée
-     * @throws PieceDebordeException    Exception en cas de débordement
-     * @throws PieceEqualsException     Exception si pièces égales
+     * @param y Ordonnee
+     * @throws CaseDejaRemplieException Exception en cas de case occupee
+     * @throws PieceDebordeException    Exception en cas de debordement
+     * @throws PieceEqualsException     Exception si pieces egales
      */
     private void ajouterPiece(int n, int x, int y) throws CaseDejaRemplieException, PieceDebordeException, PieceEqualsException {
         boolean deborde = false, fill = false;
@@ -248,11 +269,11 @@ public class Partie implements Serializable {
     }
 
     /**
-     * Méthode pour poser une Pièce
+     * Methode pour poser une Piece
      *
-     * @throws CaseDejaRemplieException Exception en cas de case occupée
-     * @throws PieceDebordeException    Exception en cas de débordement
-     * @throws PieceEqualsException     Exception si pièces égales
+     * @throws CaseDejaRemplieException Exception en cas de case occupee
+     * @throws PieceDebordeException    Exception en cas de debordement
+     * @throws PieceEqualsException     Exception si pieces egales
      */
     private void poserPiece() throws CaseDejaRemplieException, PieceDebordeException, PieceEqualsException {
         System.out.println("Choisir une pièce à poser (lettre correspondante) :");
@@ -277,10 +298,10 @@ public class Partie implements Serializable {
     }
 
     /**
-     * Méthode qui vérifie qu'une Pièce n'est pas déjà présente
+     * Methode qui verifie qu'une Piece n'est pas deja presente
      *
-     * @param p Pièce à tester
-     * @return booleen, a vrai si la Pièce existe
+     * @param p Piece a tester
+     * @return booleen, a vrai si la Piece existe
      */
     private boolean verifierPresence(Piece p) {
         boolean res = false;
@@ -294,7 +315,7 @@ public class Partie implements Serializable {
     }
 
     /**
-     * Méthode pour retirer la dernière Pièce posée
+     * Methode pour retirer la derniere Piece posee
      */
     public void retirerDernierePiece() {
         piecesRestantes.add(piecesPosees.remove(piecesPosees.size() - 1).setNull());

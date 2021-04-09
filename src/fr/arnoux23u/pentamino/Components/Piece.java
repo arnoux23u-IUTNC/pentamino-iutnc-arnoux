@@ -4,29 +4,41 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Classe Pièce
+ * Classe Piece
  *
  * @author arnoux23u
  */
 public class Piece implements Comparable<Piece>, Serializable {
 
-    //Entiers représentant les coordonnées de la Pièce
+    /**
+     * Attributs prives
+     * Entiers representant les coordonnees de la Piece
+     */
     private Integer x, y;
 
-    //Caractère permettant d'identifier la Pièce
+    /**
+     * Attribut prive
+     * Caractere permettant d'identifier la Piece
+     */
     private final char identifier;
 
-    //Liste de carrés composant la Pièce
+    /**
+     * Attribut prive
+     * Liste de carres composant la Piece
+     */
     private final ArrayList<Carre> listeCarre;
 
-    //Path pour acceder à la classe de la Pièce
+    /**
+     * Attribut prive
+     * Path pour acceder a la classe de la Piece
+     */
     private final String path;
 
     /**
-     * Constructeur public à deux paramètres
+     * Constructeur public a deux parametres
      *
-     * @param identifier caractère d'identification
-     * @param path       chemin vers la Pièce
+     * @param identifier caractere d'identification
+     * @param path       chemin vers la Piece
      */
     public Piece(char identifier, String path) {
         this.identifier = identifier;
@@ -58,7 +70,7 @@ public class Piece implements Comparable<Piece>, Serializable {
     /**
      * Getter X
      *
-     * @return Position X de la pièce
+     * @return Position X de la piece
      */
     public int getX() {
         return this.x;
@@ -67,7 +79,7 @@ public class Piece implements Comparable<Piece>, Serializable {
     /**
      * Getter Y
      *
-     * @return Position Y de la pièce
+     * @return Position Y de la piece
      */
     public int getY() {
         return this.y;
@@ -77,7 +89,7 @@ public class Piece implements Comparable<Piece>, Serializable {
      * Setter X
      *
      * @param x position x
-     * @return Pièce
+     * @return Piece
      */
     public Piece setX(int x) {
         this.x = x;
@@ -88,7 +100,7 @@ public class Piece implements Comparable<Piece>, Serializable {
      * Setter Y
      *
      * @param y position Y
-     * @return Pièce
+     * @return Piece
      */
     public Piece setY(int y) {
         this.y = y;
@@ -96,9 +108,9 @@ public class Piece implements Comparable<Piece>, Serializable {
     }
 
     /**
-     * Setter Null, supprime les coordonnés de la Pièce
+     * Setter Null, supprime les coordonnes de la Piece
      *
-     * @return Pièce
+     * @return Piece
      */
     public Piece setNull() {
         this.x = null;
@@ -107,37 +119,37 @@ public class Piece implements Comparable<Piece>, Serializable {
     }
 
     /**
-     * Méthode qui retourne le Path de la Pièce
+     * Methode qui retourne le Path de la Piece
      *
-     * @return String, path de la Pièce
+     * @return String, path de la Piece
      */
     public String getPath() {
         return this.path;
     }
 
     /**
-     * Méthode qui retourne le caractère de la Pièce
+     * Methode qui retourne le caractere de la Piece
      *
-     * @return char, caractère identifieur de la Pièce
+     * @return char, caractere identifieur de la Piece
      */
     public char getIdentifier() {
         return identifier;
     }
 
     /**
-     * Méthode qui retourne la liste de carrés de la Pièce
+     * Methode qui retourne la liste de carres de la Piece
      *
-     * @return Liste de carrés
+     * @return Liste de carres
      */
     public ArrayList<Carre> getListeCarre() {
         return this.listeCarre;
     }
 
     /**
-     * Méthode écrasée d'égalité
+     * Methode ecrasee d'egalite
      *
-     * @param o Objet à comparer
-     * @return booleen, a vrai si this == o ou si l'identificateur et les coordonnées de la Pièce et du paramètres sont égaux
+     * @param o Objet a comparer
+     * @return booleen, a vrai si this == o ou si l'identificateur et les coordonnees de la Piece et du parametres sont egaux
      */
     @Override
     public boolean equals(Object o) {
@@ -157,9 +169,9 @@ public class Piece implements Comparable<Piece>, Serializable {
     }
 
     /**
-     * Méthode écrasée de comparaison de pièces
+     * Methode ecrasee de comparaison de pieces
      *
-     * @param o Pièce à comparer
+     * @param o Piece a comparer
      * @return Entier issu de la comparaison
      */
     public int compareTo(Piece o) {
@@ -167,7 +179,7 @@ public class Piece implements Comparable<Piece>, Serializable {
     }
 
     /**
-     * Méthode écrasée toString
+     * Methode ecrasee toString
      *
      * @return String d'affichage
      */

@@ -18,24 +18,33 @@ import static java.lang.System.exit;
  */
 public class Jeu implements Serializable {
 
-    //Lien utilisé par d'autres classes
+    /**
+     * Attribut public
+     * Lien utilise par d'autres classes
+     */
     public static final String path = ".\\src\\fr\\arnoux23u\\pentamino\\";
 
-    //Liste des joueurs
+    /**
+     * Attribut prive
+     * Liste des joueurs
+     */
     private final ArrayList<Joueur> listeJoueurs;
 
-    //Scanner principal (eviter les ouvertures multiples)
+    /**
+     * Attribut public
+     * Scanner principal (pour eviter l'instanciation multiple)
+     */
     public static Scanner sc = new Scanner(System.in);
 
     /**
-     * Constructeur public par défaut, instancie la liste des joueurs
+     * Constructeur public par defaut, instancie la liste des joueurs
      */
     public Jeu() {
         listeJoueurs = new ArrayList<Joueur>();
     }
 
     /**
-     * Méthode main
+     * Methode main
      *
      * @param args arguments
      */
@@ -68,7 +77,7 @@ public class Jeu implements Serializable {
     }
 
     /**
-     * Méthode démmarer
+     * Methode demmarer
      */
     private void demarrer() {
         Joueur player = null;
@@ -102,9 +111,9 @@ public class Jeu implements Serializable {
     }
 
     /**
-     * Méthode de sélection d'un Joueur
+     * Methode de selection d'un Joueur
      *
-     * @return Joueur séléctionné
+     * @return Joueur selectionne
      */
     private Joueur choisirJoueur() {
         System.out.println("Entrez ID (premiere colonne) : ");
@@ -126,9 +135,9 @@ public class Jeu implements Serializable {
     }
 
     /**
-     * Méthode de création d'un Joueur
+     * Methode de creation d'un Joueur
      *
-     * @return Joueur crée
+     * @return Joueur cree
      */
     private Joueur creerJoueur() {
         System.out.println("Création joueur, entrez nom");
@@ -153,7 +162,7 @@ public class Jeu implements Serializable {
     }
 
     /**
-     * Méthode statique de choix d'une sauvegarde
+     * Methode statique de choix d'une sauvegarde
      *
      * @return Jeu : sauvegarde
      */
@@ -185,16 +194,16 @@ public class Jeu implements Serializable {
     }
 
     /**
-     * Méthode de création de Jeu
+     * Methode de creation de Jeu
      *
-     * @return Jeu crée
+     * @return Jeu cree
      */
     private static Jeu creerJeu() {
         return new Jeu();
     }
 
     /**
-     * Méthode d'affichage des joueurs
+     * Methode d'affichage des joueurs
      *
      * @return booleen, a vrai si il y a des joueurs
      */
@@ -216,7 +225,7 @@ public class Jeu implements Serializable {
     }
 
     /**
-     * Méthode d'affichage des joueurs (concret)
+     * Methode d'affichage des joueurs (concret)
      */
     public void afficherListeJoueurs() {
         for (Joueur j : listeJoueurs) {
@@ -225,7 +234,7 @@ public class Jeu implements Serializable {
     }
 
     /**
-     * Méthode de sauvegarde, termine le processus
+     * Methode de sauvegarde, termine le processus
      */
     public void sauvegarder() {
         System.out.println("Fin du jeu");

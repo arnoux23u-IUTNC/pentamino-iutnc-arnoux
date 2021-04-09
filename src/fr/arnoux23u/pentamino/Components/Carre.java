@@ -7,14 +7,17 @@ import java.io.Serializable;
  */
 public class Carre implements Serializable {
 
-    //Position du Carré
+    /**
+     * Attributs prives
+     * Positions du Carre
+     */
     private final int x, y;
 
     /**
-     * Constructeur public à deux paramètres
+     * Constructeur public a deux parametres
      *
      * @param x abscisse
-     * @param y ordonnée
+     * @param y ordonnee
      */
     public Carre(int x, int y) {
         this.x = x;
@@ -22,7 +25,7 @@ public class Carre implements Serializable {
     }
 
     /**
-     * Méthode écrasée toString
+     * Methode ecrasee toString
      *
      * @return String d'affichage
      */
@@ -32,10 +35,10 @@ public class Carre implements Serializable {
     }
 
     /**
-     * Méthode écrasée de test d'égalité
+     * Methode ecrasee de test d'egalite
      *
-     * @param o Objet à comparer
-     * @return booleen, a vrai si this == o ou si les coordonnées sont les mêmes
+     * @param o Objet a comparer
+     * @return booleen, a vrai si this == o ou si les coordonnees sont les mêmes
      */
     @Override
     public boolean equals(Object o) {
@@ -48,7 +51,7 @@ public class Carre implements Serializable {
     /**
      * Getter X
      *
-     * @return abscisse du Carré
+     * @return abscisse du Carre
      */
     public int getX() {
         return this.x;
@@ -57,7 +60,7 @@ public class Carre implements Serializable {
     /**
      * Getter Y
      *
-     * @return ordonnée du Carré
+     * @return ordonnee du Carre
      */
     public int getY() {
         return this.y;

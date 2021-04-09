@@ -12,35 +12,63 @@ import java.util.*;
  */
 public abstract class Joueur implements Comparable<Joueur>, Serializable {
 
-    //Attributs de joueurs
+    /**
+     * Attribut static DEBUTANT
+     */
     public static final int DEBUTANT = 0;
+
+    /**
+     * Attribut static INTERMEDIAIRE
+     */
     public static final int INTERMEDIAIRE = 1;
+
+    /**
+     * Attribut static AVANCE
+     */
     public static final int AVANCE = 2;
 
-    //Liste des parties du Joueur
+    /**
+     * Attribut prive
+     * Liste des parties du Joueur
+     */
     private final ArrayList<Partie> listeParties;
 
-    //Type du Joueur
+    /**
+     * Attribut prive
+     * Type du Joueur
+     */
     private final int type;
 
-    //Id du Joueur
+    /**
+     * Attribut prive
+     * ID du Joueur
+     */
     private final int id;
 
-    //Nom du Joueur
+    /**
+     * Attribut prive
+     * Nom du Joueur
+     */
     private final String name;
 
-    //Score du Joueur
+    /**
+     * Attribut prive
+     * Score du Joueur
+     */
     private int score;
 
-    //Scanner issu du Jeu
+    /**
+     * Attribut Public
+     * Scanner issu du Jeu
+     */
     public final static Scanner sc = Jeu.sc;
 
     /**
-     * Constructeur public à 3 paramètres
+     * Constructeur public a 3 parametres
      *
      * @param id         Id du Joueur
      * @param nom        Nom du Joueur
-     * @param difficulty Difficulté choisie
+     * @param difficulty Difficulte choisie
      */
     public Joueur(int id, String nom, int difficulty) {
         this.name = (nom != null && !nom.equals(" ") && !nom.equals("")) ? nom : "Sans nom";
@@ -51,9 +79,9 @@ public abstract class Joueur implements Comparable<Joueur>, Serializable {
     }
 
     /**
-     * Getter Identificateur de difficulté
+     * Getter Identificateur de difficulte
      *
-     * @return char correspondant à la difficulté
+     * @return char correspondant a la difficulte
      */
     public char getTypeIdentifier() {
         return (this.type == 0) ? 'D' : (this.type == 1) ? 'I' : 'A';
@@ -114,17 +142,17 @@ public abstract class Joueur implements Comparable<Joueur>, Serializable {
     }
 
     /**
-     * Méthode écrasée de comparaison
+     * Methode ecrasee de comparaison
      *
-     * @param j2 Joueur à comparer
-     * @return Entier issu de la méthode String.compareTo
+     * @param j2 Joueur a comparer
+     * @return Entier issu de la methode String.compareTo
      */
     public int compareTo(Joueur j2) {
         return this.getName().toLowerCase().compareTo(j2.getName().toLowerCase());
     }
 
     /**
-     * Méthode écrasée toString
+     * Methode ecrasee toString
      *
      * @return String d'affichage
      */
@@ -134,9 +162,9 @@ public abstract class Joueur implements Comparable<Joueur>, Serializable {
     }
 
     /**
-     * Méthode d'affichag des parties
+     * Methode d'affichage des parties
      *
-     * @return booleen, a vrai si le Joueur possède des parties
+     * @return booleen, a vrai si le Joueur possede des parties
      */
     public boolean afficherParties() {
         if (this.listeParties.isEmpty()) {
@@ -153,7 +181,7 @@ public abstract class Joueur implements Comparable<Joueur>, Serializable {
     }
 
     /**
-     * Méthode de choix d'une Partie
+     * Methode de choix d'une Partie
      *
      * @return Partie choisie
      */
@@ -172,9 +200,9 @@ public abstract class Joueur implements Comparable<Joueur>, Serializable {
     }
 
     /**
-     * Méthode de création d'une Partie
+     * Methode de creation d'une Partie
      *
-     * @return Partie crée
+     * @return Partie cree
      */
     public Partie creerPartie() {
         System.out.println("Entrez taille de grille (>5, <20)");
@@ -186,7 +214,7 @@ public abstract class Joueur implements Comparable<Joueur>, Serializable {
     }
 
     /**
-     * Méthode de démmarage du Joueur
+     * Methode de demmarage du Joueur
      *
      * @param j Jeu principal
      */
@@ -220,10 +248,10 @@ public abstract class Joueur implements Comparable<Joueur>, Serializable {
     }
 
     /**
-     * Méthode abstraite de lancement d'une Partie
+     * Methode abstraite de lancement d'une Partie
      *
      * @param j      Jeu en cours
-     * @param partie Partie à lancer
+     * @param partie Partie a lancer
      */
     public abstract void lancerPartie(Jeu j, Partie partie);
 

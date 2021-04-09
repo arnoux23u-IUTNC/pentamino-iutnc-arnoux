@@ -8,7 +8,7 @@ package fr.arnoux23u.pentamino.Components.Exceptions;
 public class CaseDejaRemplieException extends Exception {
 
     /**
-     * Constructeur public à un paramètre
+     * Constructeur public a un parametre
      *
      * @param msg Message
      */

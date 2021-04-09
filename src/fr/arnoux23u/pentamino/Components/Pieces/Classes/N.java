@@ -6,20 +6,24 @@ import fr.arnoux23u.pentamino.Jeu;
 import java.io.Serializable;
 
 /**
- * Classe N extends Pièce
+ * Classe N extends Piece
  *
  * @author arnoux23u
  */
 public class N extends Piece implements Serializable {
 
-    //Identificateur de la Pièce
+    /**
+     * Identificateur de la piece
+     */
     private static final char identifier = 'n';
 
-    //Chemin de la Pièce
+    /**
+     * Chemin de la piece
+     */
     private static final String path = Jeu.path + "Components\\Pieces\\Files\\" + N.class.getSimpleName() + ".txt";
 
     /**
-     * Constructeur public par défaut
+     * Constructeur public par defaut
      */
     public N() {
         super(identifier, path);

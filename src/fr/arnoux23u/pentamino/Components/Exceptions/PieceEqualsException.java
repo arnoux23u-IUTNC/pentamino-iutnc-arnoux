@@ -1,14 +1,14 @@
 package fr.arnoux23u.pentamino.Components.Exceptions;
 
 /**
- * Classe Exception Egalité de Pièce
+ * Classe Exception Egalite de Piece
  *
  * @author arnoux23u
  */
 public class PieceEqualsException extends Exception {
 
     /**
-     * Constructeur public à un paramètre
+     * Constructeur public a un parametre
      *
      * @param msg Message
      */

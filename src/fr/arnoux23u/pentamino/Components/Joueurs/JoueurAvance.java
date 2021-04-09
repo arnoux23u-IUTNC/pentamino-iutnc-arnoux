@@ -7,14 +7,14 @@ import fr.arnoux23u.pentamino.Jeu;
 import java.io.Serializable;
 
 /**
- * Classe Joueur Avancé
+ * Classe Joueur Avance
  *
  * @author arnoux23u
  */
 public class JoueurAvance extends Joueur implements Serializable {
 
     /**
-     * Constructeur public à deux paramètres
+     * Constructeur public a deux parametres
      *
      * @param id  id du Joueur
      * @param nom nom du Joueur
@@ -24,10 +24,10 @@ public class JoueurAvance extends Joueur implements Serializable {
     }
 
     /**
-     * Méthode écrasée lancerPartie
+     * Methode ecrasee lancerPartie
      *
      * @param j      Jeu en cours
-     * @param partie Partie à lancer
+     * @param partie Partie a lancer
      */
     @Override
     public void lancerPartie(Jeu j, Partie partie) {
